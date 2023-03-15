@@ -1,0 +1,39 @@
+@model IEnumerable<PayrollApp.Models.Admin>
+
+<div class="row">
+    <div class="clo-md-12">
+        <a asp-action="Create" asp-controller="Admin" class="btn btn-success">Add</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Password</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Firstname</td>
+                        <td>@item.Lastname</td>
+                        <td>@item.Email</td>
+                        <td>@item.Password</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Admin" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-controller="Admin" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
